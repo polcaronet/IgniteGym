@@ -152,7 +152,7 @@ export function SignUp() {
           render={({ field: { onChange, value } }) => (
             <Input
               placeholder='Senha'
-              secureTextEntry
+              isPassword
               autoCapitalize='none'
               onChangeText={onChange}
               value={value}
@@ -167,7 +167,7 @@ export function SignUp() {
           render={({ field: { onChange, value } }) => (
             <Input
               placeholder='Confirmar Senha'
-              secureTextEntry 
+              isPassword
               autoCapitalize='none'
               onChangeText={onChange}
               value={value}

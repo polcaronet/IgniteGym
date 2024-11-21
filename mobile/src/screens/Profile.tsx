@@ -106,11 +106,11 @@ const [userPhoto, setUserPhoto] = useState(require('../../src/assets/AnselmoIGni
       const mimeType = mime.getType(photoURI) || 'image/jpeg' || 'image/png';
      
       const photoFile = {
-        name: `${user.name}.${fileExtension.toLowerCase()}`, 
+        name: `${user.name}.${fileExtension}`.replaceAll(' ', '').toLowerCase(), 
         uri: photoSelected.assets[0].uri,
-        type: mimeType, 
+        type: mimeType .replaceAll(' ', '').toLowerCase(),  
       } as any;
-
+      
       const userPhotoUploadedForm = new FormData();
       userPhotoUploadedForm.append('avatar', photoFile);
 
@@ -298,7 +298,7 @@ const [userPhoto, setUserPhoto] = useState(require('../../src/assets/AnselmoIGni
                 placeholder='Senha antiga' 
                 bg='$gray600' 
                 onChangeText={onChange}
-                secureTextEntry
+                isPassword
                 errorMessage={errors.old_password?.message}
                 
               />
@@ -313,7 +313,7 @@ const [userPhoto, setUserPhoto] = useState(require('../../src/assets/AnselmoIGni
                 placeholder='Nova senha'  
                 bg='$gray600' 
                 onChangeText={onChange}
-                secureTextEntry
+                isPassword
                 errorMessage={errors.password?.message}
               />
             )}
@@ -327,7 +327,7 @@ const [userPhoto, setUserPhoto] = useState(require('../../src/assets/AnselmoIGni
                 placeholder='Confirme nova senha'   
                 bg='$gray600' 
                 onChangeText={onChange}
-                secureTextEntry
+                isPassword
                 returnKeyType='send'
                 onSubmitEditing={handleSubmit(handleProfileUpdate)}
                 errorMessage={errors.confirm_password?.message}

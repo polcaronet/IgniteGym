@@ -124,7 +124,7 @@ export function SignIn() {
               render={({ field: { onChange, value } }) => (
                 <Input
                   placeholder='Senha'
-                  secureTextEntry
+                  isPassword
                   onChangeText={onChange}
                   value={value}
                   errorMessage={errors.password?.message}
